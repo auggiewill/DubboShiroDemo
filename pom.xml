@@ -13,6 +13,26 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  
+  <repositories>
+        <repository>
+            <id>spring-release</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+  
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>Brixton.SR5</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+  
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
