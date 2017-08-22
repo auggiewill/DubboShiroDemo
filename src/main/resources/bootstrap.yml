@@ -1,6 +1,6 @@
 spring:
   application:
-    name: crawler-utils
+    name: dubbo-shiro-demo
   profiles:
     active: development
 
