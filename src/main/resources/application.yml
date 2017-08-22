@@ -1,0 +1,19 @@
+server:
+  port: 7801
+    
+---
+spring:
+  profiles: development
+  file:
+    dir: /Users/auggie/data/test
+---
+spring:
+  profiles: production
+  file:
+    dir: /data/file/xlsout
+---
+spring:
+  profiles: auggiemac
+  file:
+    dir: /Users/auggie/data/dongtong/file/xlsout
+---

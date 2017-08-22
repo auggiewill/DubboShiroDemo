@@ -1,0 +1,75 @@
+group 'com.dongtong'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+            url 'http://nexus.shfc999.com/nexus/content/groups/public/'
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.7.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'maven'
+
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+configurations {
+	providedRuntime
+	//all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
+	//all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+repositories {
+    maven {
+        url 'http://nexus.shfc999.com/nexus/content/groups/public/'
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+}
+
+dependencies {
+
+	
+	
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	
+    
+    compile 'io.springfox:springfox-swagger2:2.5.0'
+    compile 'io.springfox:springfox-swagger-ui:2.5.0'
+    
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Brixton.SR5'
+    }
+}
+
+task writeNewPom << {
+    pom {
+        project {
+            inceptionYear '2017'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("pom.xml")
+}

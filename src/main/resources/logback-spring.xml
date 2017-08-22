@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <!-- 开发环境日志设置 -->
+    <springProfile name="development">
+        <!-- project default level -->
+        <logger name="com.dongtong" level="INFO"/>
+        
+        <!--log4jdbc -->
+<!--         <logger name="jdbc.sqltiming" level="DEBUG"/> -->
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- 区分于开发环境-->
+    <springProfile name="production">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+            </encoder>
+            <file>/data/logs/apps/crawler-utils.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- daily rollover -->
+                <fileNamePattern>/data/logs/apps/crawler-utils.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+                <!-- keep 30 days' worth of history -->
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+        </appender>
+
+        <!-- project default level -->
+        <logger name="com.dongtong" level="DEBUG"/>
+
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+    
+    <!-- 我自己用用的哈-->
+    <springProfile name="auggiemac">
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+            </encoder>
+            <file>/Users/auggie/data/dongtong/logs/crawler-utils.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- daily rollover -->
+                <fileNamePattern>/Users/auggie/data/dongtong/logs/crawler-utils.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+                <!-- keep 30 days' worth of history -->
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+        </appender>
+
+        <!-- project default level -->
+        <logger name="com.dongtong" level="DEBUG"/>
+        
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+    
+    
+</configuration>

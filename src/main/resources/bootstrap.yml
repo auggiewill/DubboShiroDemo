@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: crawler-utils
+  profiles:
+    active: development
+
