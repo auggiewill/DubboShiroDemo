@@ -13,7 +13,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  
   <repositories>
         <repository>
             <id>spring-release</id>
@@ -31,12 +30,16 @@
 			<scope>import</scope>
 		</dependency>
 	</dependencies>
-</dependencyManagement>
-  
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
