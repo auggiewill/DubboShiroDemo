@@ -21,8 +21,6 @@ apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'maven'
 
-apply plugin: 'maven'
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 

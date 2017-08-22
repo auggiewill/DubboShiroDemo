@@ -6,3 +6,6 @@
 .settings
 
 bin
+/.gradle/
+*.DS_Store
+/build/
